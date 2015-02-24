@@ -28,15 +28,17 @@ mean(numAces==0)
 table(numAces)/m
 
 
-### 1.7 Martian birthdays ###
-n <- 1:60		# vector of number of people in sample
-p <- numeric(length(n))		# introduce empty vector of length n
+### 1.7 Matching birthdays ###
+n <- 1:60							# vector of number of people in sample
+p <- numeric(length(n))						# introduce empty vector of length n
 for (i in n){
-	q <- prod(1-(0:(i-1))/669)		# prob(no two have same birthday)
-	p[i] <- 1 - q		# prob(at least two share the same birthday)
+	q <- prod(1-(0:(i-1))/365)				# prob(no two have same birthday)
+	p[i] <- 1 - q						# prob(at least two share the same birthday)
 }
-plot(n,p, type="l", xlab="Number of Martians", ylab="Probability of Two Matching Birthdays")
+plot(n, p, type="l", xlab="Number of People"
+	, ylab="Probability of Two Matching Birthdays")
 min(n[p>0.5])
+
 
 
 ### 1.8 nonuniform birthday question ###
